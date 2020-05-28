@@ -1,0 +1,21 @@
+@import './variables.css';
+@import './typography.css';
+
+@import './components/navigation.css';
+@import './components/formComponents.css';
+@import './components/newsPreview.css';
+@import './components/donationcard.css';
+
+@import './pages/home.css';
+
+
+* { box-sizing: border-box;}
+
+.page-container section, .nav-container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.page-container section {
+	background-color: var(--bg-color);
+}

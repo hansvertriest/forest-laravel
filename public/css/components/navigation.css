@@ -1,0 +1,31 @@
+.nav-container {
+	position:fixed;
+	width: 100vw;
+	padding: 20px 0 ;
+	background-color: var(--nav-bg-color);
+}
+
+.page-content, .nav {
+	grid-column-start: 4;
+	grid-column-end: 10;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+}
+
+.nav .nav__logo{
+	display:flex;
+	justify-content:space-between;
+	align-items: center;;
+}
+
+.nav .nav__logo img {
+	height: 35px;
+}
+
+.nav__buttons a {
+	padding: 0 15px;
+}

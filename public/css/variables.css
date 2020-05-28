@@ -1,0 +1,12 @@
+:root {
+	/* colors */
+	/* --bg-color: #50AA8D; */
+	--bg-color: #50AA8D;
+	--bg-color-light: #78CEB2;
+	--bg-color-dark: #2C3A36;
+	--nav-bg-color: rgba(80, 170, 141, 0.15);
+	--white: #FFF;
+	--white-shade: #E8EEEC;
+	--yellow: #FCDB6F;
+	--brown: #7B635B;
+  }
