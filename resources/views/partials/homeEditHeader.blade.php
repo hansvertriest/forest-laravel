@@ -4,7 +4,8 @@
 		inputs[ev.target.name] =  `<input type="text" name="${ev.target.name}" value="${ev.target.value}" hidden />`;
 
 		const form = document.getElementById('hidden-from');
-		let newHTML = '@csrf <button type="submit">Submit</button>';
+		let newHTML =
+			'@csrf <input type="text" name="language" value="{{$language}}" hidden /> <button type="submit">Submit</button>';
 		Object.keys(inputs).forEach((key) => {
 			newHTML += inputs[key];
 		})

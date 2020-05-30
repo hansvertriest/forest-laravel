@@ -4,16 +4,27 @@
 	border: 2px solid #78CEB2;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
+	height: 250px; 
 }
 
-.news-preview img {
-	width: 300px;
+.news-preview .news-preview__img {
+	width: 350px;
+	max-height: 100%;
 	background-size: cover;
 	border-radius: 10px 0 0 10px; 
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.news-preview .news-preview__img img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 .news-preview__content {
 	padding: 10px 40px;
+	width: 100%;
 }
 
 .news-preview__content div {

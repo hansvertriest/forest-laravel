@@ -7,15 +7,36 @@
 @import './components/donationcard.css';
 
 @import './pages/home.css';
+@import './pages/customPageEdit.css';
+@import './pages/customPage.css';
+@import './pages/blogPostPage.css';
+@import './pages/blogPostOverviewPage.css';
 
 
 * { box-sizing: border-box;}
 
-.page-container section, .nav-container {
+.page-wrapper, .page-container section, .nav-container {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 }
 
-.page-container section {
+/* normal pages */
+.page-wrapper {
 	background-color: var(--bg-color);
+	padding-top: 100px;
+}
+
+.page-wrapper .page {
+	background-color: var(--bg-color);
+	grid-column-start: 4;
+	grid-column-end: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.page-wrapper .page .content-container {
+	display:grid;
+	grid-template-columns: repeat(8, 1fr);
+	width: 100%;
 }

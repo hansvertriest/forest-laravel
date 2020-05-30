@@ -1,6 +1,5 @@
 <?php
 
-use App\LandingPage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(LandingPageSeeder::class);
+		$this->call(LandingPageSeeder::class);
+		$this->call(AdminSeeder::class);
     }
 }

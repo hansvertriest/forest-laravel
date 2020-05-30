@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\LandingPage;
-use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function getIndex(Request $r)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+	
+	public function getIndex(Request $r)
     {
-		
 		$language = $r->cookie('language') ?? $r->language;
 		$landingpage = LandingPage::where('language', $language ?? 'en')->first();
         return view('pages/home', $landingpage);

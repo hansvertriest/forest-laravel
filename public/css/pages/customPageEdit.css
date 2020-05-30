@@ -1,0 +1,26 @@
+.custom-page-edit__form {
+	grid-column-start: 3;
+	grid-column-end: 7;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content:center;
+	height: 100%
+	
+}
+
+.custom-page-edit__form input,
+.custom-page-edit__form textarea,
+.custom-page-edit__form .tox,
+.custom-page-edit__form label{
+	width: 100%;
+}
+
+.custom-page-edit__form button {
+	margin-top: 70px;
+}
+
+.custom-page-edit__form .tox {
+	margin: 10px 0;
+}

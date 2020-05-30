@@ -42,7 +42,23 @@
 			
 		</section>
 		<section id="page-1">
-		2
+			<div class="page-content">
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_title_one" value="{{$about_title_one ?? ''}} ">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_text_one" value="{{$about_text_one ?? ''}} ">
+				</div>
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_title_two" value="{{$about_title_two ?? ''}} ">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_text_two" value="{{$about_text_two ?? ''}} ">
+				</div>
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_title_three" value="{{$about_title_three ?? ''}} ">
+					<input type="text" onchange="addToHiddenForm(event)" name="about_text_three" value="{{$about_text_three ?? ''}} ">
+				</div>
+			</div>
 		</section>
 		<section id="page-2">
 			<div class="page-content">

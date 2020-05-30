@@ -40,11 +40,27 @@
 			</div>
 		</section>
 		<section id="page-1">
-		2
+			<div class="page-content">
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<p class="about-card__title">{{$about_title_one ?? ''}}</p>
+					<p class="about-card__text">{{$about_text_one ?? ''}}</p>
+				</div>
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<p class="about-card__title">{{$about_title_two ?? ''}}</p>
+					<p class="about-card__text">{{$about_text_two ?? ''}}</p>
+				</div>
+				<div class="page-content__about-card">
+					<img src="" alt="">
+					<p class="about-card__title">{{$about_title_three ?? ''}}</p>
+					<p class="about-card__text">{{$about_text_three ?? ''}}</p>
+				</div>
+			</div>
 		</section>
 		<section id="page-2">
 			<div class="page-content">
-			<h1>news</h1>
+			<h1 class="page-title">news</h1>
 				@include('partials.newsPreview', [
 					"title" => "A THOUSAND new trees planted last month!",
 					"text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas montes, senectus nisl, consectetur purus purus pellentesque pretium libero. Aliquet viverra elit laoreet pellentesque scelerisque.",
@@ -63,7 +79,7 @@
 		</section>
 		<section id="page-3">
 			<div class="page-content">
-				<h1>Donations</h1>
+				<h1 class="page-title">Donations</h1>
 				<a href="{{ route('home')}}"><button class="primary-button">{{$donations_donate_btn}}</button></a>
 				@include('partials.donationCard', [
 					"name" => "Jan De Meyer",
@@ -82,7 +98,7 @@
 		
 		<section id="page-4">
 			<div class="page-content">
-				<h1>Contact</h1>
+				<h1 class="page-title">Contact</h1>
 				<form>
 					<div class="contact-email">
 						<label for="email">{{$contact_email_label}}</label>

@@ -23,13 +23,13 @@ class CreateeLandingpageTable extends Migration
 			$table->string('home_newsletter_placeholder', 40)->default('');
 			$table->string('home_subscribe_button', 15)->default('');
 
-			$table->string('about_title_one', 20)->default('');
+			$table->string('about_title_one', 35)->default('');
 			// $table->string('about_picture_one', );
 			$table->string('about_text_one', 150)->default('');
-			$table->string('about_title_two', 20)->default('');
+			$table->string('about_title_two', 35)->default('');
 			// $table->string('about_picture_two', );
 			$table->string('about_text_two', 150)->default('');
-			$table->string('about_title_three', 20)->default('');
+			$table->string('about_title_three', 35)->default('');
 			// $table->string('about_picture_three', );
 			$table->string('about_text_three', 150)->default('');
 

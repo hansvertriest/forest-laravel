@@ -1,4 +1,8 @@
+/* GENERAL */
 
+.page-container section, body {
+	background-color: var(--bg-color);
+}
 
 #page-2 .page-content, #page-3 .page-content, #page-4 .page-content {
 	display: flex;
@@ -47,8 +51,27 @@
 	width: 250px;
 }
 
+/* page-1 */
+#page-1 .page-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 100px;
+	flex-wrap: wrap;
+}
+#page-1 .page-content__about-card {
+	padding: 30px;
+	width: 30%;
+	min-width: 250px;
+}
+
+#page-1 .page-content__about-card img {
+	width: 100%;
+}
+
 /* page-2 */
 
+/* page-3 */
 
 /* page 4 */
 
@@ -67,10 +90,3 @@
 #page-4 .page-content form .primary-button {
 	width: auto;
 }
-
-/* 
-.edit-form {
-	display: flex;
-	width: 100%;
-	background-color: blue;
-} */

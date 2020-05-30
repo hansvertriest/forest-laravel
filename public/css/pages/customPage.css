@@ -1,0 +1,10 @@
+.custom-page-content {
+	grid-column-start: 3;
+	grid-column-end: 7;
+}
+
+.custom-page-content .custom-page-intro {
+	margin: 80px 0;
+	border-left: 5px solid var(--bg-color-light);
+	padding-left: 20px;
+}
