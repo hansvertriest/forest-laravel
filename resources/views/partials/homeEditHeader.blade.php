@@ -27,4 +27,14 @@
 	<form id="hidden-from" action="" method="post">
 		<button type="submit">Submit</button>
 	</form>
+	<form action="/page-names-edit" method="post">
+		@csrf
+		<input name="home" placeholder="home" type="text">
+		<input name="about" placeholder="about" type="text">
+		<input name="news" placeholder="news" type="text">
+		<input name="donations" placeholder="donations" type="text">
+		<input name="contact" placeholder="contact" type="text">
+		<input name="pages" placeholder="pages" type="text">
+		<button type="submit">Submit</button>
+	</form>
 </div>

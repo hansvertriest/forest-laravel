@@ -1,11 +1,11 @@
 @extends('pageLayout')
 
 @section('document-title')
-    Forest | {{$title}}
+    Forest | {{$post->title}}
 @endsection
 
 @section('header')
-	@include('partials/navigation', ["page" => $title])
+	@include('partials/navigation', ["page" => $post->title, "page_names" => $titles, "pages" => $custom_pages])
 @endsection
 
 @section('title')
@@ -14,10 +14,10 @@
 
 @section('content')
 	<div class="blog-post-content">
-		<img src="{{asset('/image-uploads/'.$imagename)}}"" alt="">
+		<img src="{{asset('/image-uploads/'. $post->imagename)}}"" alt="">
 
-		<p class="blog-post-title">{{$title}}</p>
-		<p class="blog-post-intro">{{$intro}}</p>
-		{!!$text!!}
+		<p class="blog-post-title">{{$post->title}}</p>
+		<p class="blog-post-intro">{{$post->intro}}</p>
+		{!!$post->text!!}
 	</div>
 @endsection

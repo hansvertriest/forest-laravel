@@ -12,5 +12,6 @@ class BlogPost extends Model
 		'intro',
 		'text',
 		'imagename',
+		'language',
 	];
 }

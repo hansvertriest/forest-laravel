@@ -57,6 +57,6 @@ class CreateeLandingpageTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('custom_pages');
     }
 }

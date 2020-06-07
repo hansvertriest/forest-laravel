@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomPageTable extends Migration
+class PageNameTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateCustomPageTable extends Migration
      */
     public function up()
     {
-        Schema::create('custom_pages', function (Blueprint $table) {
-
+        Schema::create('page_names', function (Blueprint $table) {
 			$table->id();
-
+		
 			$table->string('language')->default('en');
-			$table->string('title')->default('New Page');
-			$table->string('intro')->default('');
-			$table->string('content')->default('');
-			$table->string('slug')->default('');
-			
+			$table->string('home')->default('Home');
+			$table->string('about')->default('about');
+			$table->string('news')->default('news');
+			$table->string('donations')->default('donations');
+			$table->string('contact')->default('contact');
+			$table->string('pages')->default('pages');
+
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateCustomPageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('custom_pages');
+        Schema::dropIfExists('page_names');
     }
 }

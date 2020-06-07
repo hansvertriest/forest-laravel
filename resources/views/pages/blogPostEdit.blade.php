@@ -25,6 +25,10 @@
 @section('content')
 	<form class="custom-page-edit__form" method="post" enctype="multipart/form-data">
 		@csrf
+		<select name="language" id="language-selector" >
+			<option value="nl" @if(isset($_COOKIE['language']) && $_COOKIE['language'] === "nl") selected="selected" @endif>NL</option>
+			<option value="en" @if(isset($_COOKIE['language']) && $_COOKIE['language'] === "en") selected="selected" @endif>EN</option>
+		</select>
 		<label for="image"></label>
 		<input type="file" name="image" id="image">
 		<label for="title">Title</label>

@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\CustomPage;
+use App\PageName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class customPageController extends Controller
 {
 
-	public function getPage($slug)
+	public function getPage(Request $r, $slug)
     {
+		$language = $r->cookie('language') ?? 'en';
 		$page = CustomPage::where('slug', $slug)->first() ?? [];
-		return view('pages/customPage', $page);
+		$page_names = PageName::where('language', $language)->first();
+		$custom_pages = CustomPage::where('language', $language)->get() ?? [];
+		return view('pages/customPage', ["page" => $page, 'titles' => $page_names, 'custom_pages' => $custom_pages]);
 	}
 
     public function getEdit($slug)
@@ -28,6 +32,7 @@ class customPageController extends Controller
 		$page = CustomPage::where('slug', $slug)->first();
 
 		if ($page) {
+			$page->language = $input['language'];
 			$page->title = $input['title'];
 			$page->intro = $input['intro'];
 			$page->content = $input['content'];
@@ -35,6 +40,7 @@ class customPageController extends Controller
 			$page->save();
 		} else {
 			$new_page = new CustomPage();
+			$new_page->language = $input['language'];
 			$new_page->title = $input['title'];
 			$new_page->intro = $input['intro'];
 			$new_page->content = $input['content'];

@@ -21,6 +21,10 @@
 @section('content')
 	<form class="custom-page-edit__form" method="post">
 		@csrf
+		<select name="language" id="language-selector" >
+			<option value="nl" @if(isset($_COOKIE['language']) && $_COOKIE['language'] === "nl") selected="selected" @endif>NL</option>
+			<option value="en" @if(isset($_COOKIE['language']) && $_COOKIE['language'] === "en") selected="selected" @endif>EN</option>
+		</select>
 		<label for="title">Title</label>
 		<input type="text" id="title" name="title" value="{{$title ?? ''}}">
 		<label for="intro">Intro</label>

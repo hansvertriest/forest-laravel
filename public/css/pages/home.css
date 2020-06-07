@@ -70,8 +70,24 @@
 }
 
 /* page-2 */
+#page-2 .page-content .page-content__button-container{
+	flex-grow: 1;
+	display:flex;
+	flex-direction: column;
+	justify-content:center; 
+}
+
+#page-2 .page-content .page-content__news {
+	width: 100%;
+}
 
 /* page-3 */
+#page-3 .page-content .page-content__button-container{
+	flex-grow: 1;
+	display:flex;
+	flex-direction: column;
+	justify-content:center; 
+}
 
 /* page 4 */
 

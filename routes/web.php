@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/', 'HomeController@getIndex')->name('home');
 Route::get('/home-edit', 'HomeController@getEdit')->name('home.edit');
 Route::post('/home-edit', 'HomeController@postEdit');
+Route::post('/page-names-edit', 'HomeController@postPageNames');
 
 // custom pages
 Route::get('/page/{slug}', 'CustomPagecontroller@getPage')->name('customPage.get');

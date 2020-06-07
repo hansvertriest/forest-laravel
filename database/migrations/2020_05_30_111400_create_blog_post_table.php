@@ -21,6 +21,7 @@ class CreateBlogPostTable extends Migration
 			$table->string('text')->default('');
 			$table->string('slug')->default('');
 			$table->string('imagename')->default('');
+			$table->string('language')->default('en');
 
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ class CreateBlogPostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_post');
+        Schema::dropIfExists('blog_posts');
     }
 }

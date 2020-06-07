@@ -7,33 +7,25 @@
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
-	<?php 
-		// if(isset($_COOKIE["language"])) {
-		// 	header('/?language=' . $_COOKIE["language"]);
-		// }
-		if(isset($_GET["language"])) {
-			setcookie ( "language", $_GET["language"]);
-		}
-	?>
-	@include('partials.navigation', ["page" => "home"])
+	@include('partials.navigation', ["page" => "home", "page_names" => $titles, "pages" => $custom_pages])
 	<div class="page-container" id="page-container">
 		<section id="page-0">
 			<div class="page-content">
 				<div class="page-0__overlay">
 					<div class="overlay__title">
-						<p>{{$home_title}}</p>
+						<p>{{$text->home_title}}</p>
 						<img src="{{asset('images/forest-icon.svg')}}" alt="">
 					</div>
-					<p class="overlay__subtitle">{{$home_subtitle}}</p>
+					<p class="overlay__subtitle">{{$text->home_subtitle}}</p>
 					<div class="overlay__store-buttons" >
 						<img src="{{asset('images/googleplay.png')}}" alt="">
 						<img src="{{asset('images/appstore.png')}}" alt="">
 					</div>
 					<div class="newsletter-subscribe">
-						<p class="newsletter-subscribe__label">{{$home_newsletter_text}}</p>
+						<p class="newsletter-subscribe__label">{{$text->home_newsletter_text}}</p>
 						<form >
-							<button class="primary-button">{{$home_subscribe_button}}</button>
-							<input class="newsletter-subscribe__input" type="text" placeholder="{{$home_newsletter_placeholder}}">
+							<button class="primary-button">{{$text->home_subscribe_button}}</button>
+							<input class="newsletter-subscribe__input" type="text" placeholder="{{$text->home_newsletter_placeholder}}">
 						</form>
 					</div>
 				</div>
@@ -43,44 +35,49 @@
 			<div class="page-content">
 				<div class="page-content__about-card">
 					<img src="" alt="">
-					<p class="about-card__title">{{$about_title_one ?? ''}}</p>
-					<p class="about-card__text">{{$about_text_one ?? ''}}</p>
+					<p class="about-card__title">{{$text->about_title_one ?? ''}}</p>
+					<p class="about-card__text">{{$text->about_text_one ?? ''}}</p>
 				</div>
 				<div class="page-content__about-card">
 					<img src="" alt="">
-					<p class="about-card__title">{{$about_title_two ?? ''}}</p>
-					<p class="about-card__text">{{$about_text_two ?? ''}}</p>
+					<p class="about-card__title">{{$text->about_title_two ?? ''}}</p>
+					<p class="about-card__text">{{$text->about_text_two ?? ''}}</p>
 				</div>
 				<div class="page-content__about-card">
 					<img src="" alt="">
-					<p class="about-card__title">{{$about_title_three ?? ''}}</p>
-					<p class="about-card__text">{{$about_text_three ?? ''}}</p>
+					<p class="about-card__title">{{$text->about_title_three ?? ''}}</p>
+					<p class="about-card__text">{{$text->about_text_three ?? ''}}</p>
 				</div>
 			</div>
 		</section>
 		<section id="page-2">
 			<div class="page-content">
-			<h1 class="page-title">news</h1>
-				@include('partials.newsPreview', [
-					"title" => "A THOUSAND new trees planted last month!",
-					"text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas montes, senectus nisl, consectetur purus purus pellentesque pretium libero. Aliquet viverra elit laoreet pellentesque scelerisque.",
-					"date" => "25 - 5 - 2020",
-					"img" => "images/landing.jpg"
-				])
+			<h1 class="page-title">{{$titles->news}}</h1>
+				<div class="page-content__news">
+					@if(count($news) > 0)
+						@foreach($news as $post)
+							@include('partials.newsPreview', [
+								"title" => $post->title,
+								"text" => $post->intro,
+								"date" => $post->created_at,
+								"img" => 'image-uploads/'.$post->imagename,
+								"slug" => $post->slug,
+							])
+						@endforeach
+					@else
+						<p>No news stories</p>
+					@endif
+				</div>
 				
-				@include('partials.newsPreview', [
-					"title" => "A THOUSAND new trees planted last month!",
-					"text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas montes, senectus nisl, consectetur purus purus pellentesque pretium libero. Aliquet viverra elit laoreet pellentesque scelerisque.",
-					"date" => "25 - 5 - 2020",
-					"img" => "images/landing.jpg"
-				])
-				<a href="{{ route('home')}}"><button class="secondary-button">{{$news_all_stories_button}}</button></a>
+				<div class="page-content__button-container">
+					<a href="{{ route('home')}}"><button class="secondary-button">{{$text->news_all_stories_button}}</button></a>
+				</div>
 			</div>
 		</section>
 		<section id="page-3">
 			<div class="page-content">
-				<h1 class="page-title">Donations</h1>
-				<a href="{{ route('home')}}"><button class="primary-button">{{$donations_donate_btn}}</button></a>
+				<h1 class="page-title">{{$titles->donations}}</h1>
+				<a href="{{ route('home')}}"><button class="primary-button">{{$text->donations_donate_btn}}</button></a>
 				@include('partials.donationCard', [
 					"name" => "Jan De Meyer",
 					"msg" => "Deze app heeft er voor gezorgd dat ik er door was op wiskunde. Zeker de donatiee waard dus!",
@@ -92,29 +89,32 @@
 					"msg" => "Deze app heeft er voor gezorgd dat ik er door was op wiskunde. Zeker de donatiee waard dus!",
 					"amount" => "30",
 				])
-				<a href="{{ route('home')}}"><button class="secondary-button">{{$donations_overview_btn}}</button></a>
+				<div class="page-content__button-container">
+					<a href="{{ route('home')}}"><button class="secondary-button">{{$text->donations_overview_btn}}</button></a>
+				</div>
+				
 			</div>
 		</section>
 		
 		<section id="page-4">
 			<div class="page-content">
-				<h1 class="page-title">Contact</h1>
+				<h1 class="page-title">{{$titles->contact}}</h1>
 				<form>
 					<div class="contact-email">
-						<label for="email">{{$contact_email_label}}</label>
-						<input type="text" name="email" placeholder="{{$contact_email_placeholder}}">
+						<label for="email">{{$text->contact_email_label}}</label>
+						<input type="text" name="email" placeholder="{{$text->contact_email_placeholder}}">
 					</div>
 					
 					<div class="contact-subject">
-						<label for="subject">{{$contact_subject_label}}</label>
-						<input type="text" name="subject" placeholder="{{$contact_subject_placeholder}}">
+						<label for="subject">{{$text->contact_subject_label}}</label>
+						<input type="text" name="subject" placeholder="{{$text->contact_subject_placeholder}}">
 					</div>
 					
 					<div class="contact-msg">
-						<label for="msg">{{$contact_msg_label}}</label>
-						<textarea name="msg" placeholder="{{$contact_msg_placeholder}}"></textarea>
+						<label for="msg">{{$text->contact_msg_label}}</label>
+						<textarea name="msg" placeholder="{{$text->contact_msg_placeholder}}"></textarea>
 					</div>
-					<button type="submit" class="primary-button">{{$contact_msg_send_btn}}</button>
+					<button type="submit" class="primary-button">{{$text->contact_msg_send_btn}}</button>
 				</form>
 				
 			</div>
