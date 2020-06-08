@@ -1,0 +1,9 @@
+.admin-header {
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.admin-header .nav_logo {
+	display: flex;
+}

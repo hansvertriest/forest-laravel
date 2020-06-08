@@ -5,12 +5,14 @@
 @import './components/formComponents.css';
 @import './components/newsPreview.css';
 @import './components/donationcard.css';
+@import './components/adminHeader.css';
 
 @import './pages/home.css';
 @import './pages/customPageEdit.css';
 @import './pages/customPage.css';
 @import './pages/blogPostPage.css';
 @import './pages/blogPostOverviewPage.css';
+/* @import './pages/adminPage.css'; */
 
 
 * { box-sizing: border-box;}

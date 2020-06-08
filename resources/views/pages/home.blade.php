@@ -23,9 +23,10 @@
 					</div>
 					<div class="newsletter-subscribe">
 						<p class="newsletter-subscribe__label">{{$text->home_newsletter_text}}</p>
-						<form >
-							<button class="primary-button">{{$text->home_subscribe_button}}</button>
-							<input class="newsletter-subscribe__input" type="text" placeholder="{{$text->home_newsletter_placeholder}}">
+						<form action="newsletter/subscribe" method="post">
+							@csrf
+							<button  class="primary-button">{{$text->home_subscribe_button}}</button>
+							<input name="email" class="newsletter-subscribe__input" type="text" placeholder="{{$text->home_newsletter_placeholder}}">
 						</form>
 					</div>
 				</div>

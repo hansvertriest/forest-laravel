@@ -38,6 +38,14 @@ Route::get('/blog-edit/{slug}', [
 	])->name('blogPost.edit');
 Route::post('/blog-edit/{slug}', 'BlogPostcontroller@saveBlogPost')->name('blogPost.postEdit');
 
+// newsletter subscribe
+Route::post('newsletter/subscribe', 'MailchimpController@subscribe')->name('mailchimp.subscribe');
+Route::post('newsletter/unsubscribe', 'MailchimpController@unSubscribe')->name('mailchimp.unsubscribe');
+
+//admin
+Route::get('admin/pages', 'AdminController@getPages')->name('admin.pages');
+
+
 // auth
 Auth::routes();
 
