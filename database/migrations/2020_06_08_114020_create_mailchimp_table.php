@@ -16,7 +16,8 @@ class CreateMailchimpTable extends Migration
         Schema::create('mailchimps', function (Blueprint $table) {
 			$table->id();
 
-			$table->string('api-key')->default('');
+			$table->string('api_key')->default('');
+			$table->string('list_id')->default('');
 			
             $table->timestamps();
         });

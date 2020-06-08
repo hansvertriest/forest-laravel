@@ -21,7 +21,7 @@ class CreateCustomPageTable extends Migration
 			$table->string('title')->default('New Page');
 			$table->string('intro')->default('');
 			$table->string('content')->default('');
-			$table->string('slug')->default('');
+			$table->string('slug')->default('')->unique();
 			
             $table->timestamps();
         });

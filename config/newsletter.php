@@ -1,5 +1,7 @@
 <?php
 
+use App\Mailchimp;
+
 return [
 
     /*
@@ -13,8 +15,8 @@ return [
      * The API key of a MailChimp account. You can find yours at
      * https://us10.admin.mailchimp.com/account/api-key-popup/.
      */
-    // 'apiKey' => env('MAILCHIMP_APIKEY'),
-	'apiKey' => '24123373a59509c123b1f5ab5a4b796f-us10',
+    'apiKey' => env('MAILCHIMP_APIKEY'),
+	// 'apiKey' => Mailchimp::first()->api_key,
     /*
      * The listName to use when no listName has been specified in a method.
      */
@@ -39,8 +41,8 @@ return [
              * how to get this value:
              * http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id.
              */
-            // 'id' => env('MAILCHIMP_LIST_ID'),
-            'id' => '65e90d30a5',
+            'id' => env('MAILCHIMP_LIST_ID'),
+            // 'id' => Mailchimp::first()->list_id,
         ],
     ],
 

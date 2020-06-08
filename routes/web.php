@@ -26,8 +26,14 @@ Route::post('/page-names-edit', 'HomeController@postPageNames');
 
 // custom pages
 Route::get('/page/{slug}', 'CustomPagecontroller@getPage')->name('customPage.get');
-Route::get('/custom-page-edit/{slug}', 'CustomPagecontroller@getEdit')->name('customPage.edit');
-Route::post('/custom-page-edit/{slug}', 'CustomPagecontroller@savePage')->name('customPage.postEdit');
+Route::get('/custom-page-edit/{slug}', [
+	'middleware' => 'auth.admin',
+	'uses' => 'CustomPagecontroller@getEdit'
+])->name('customPage.edit');
+Route::post('/custom-page-edit/{slug}', [
+	'middleware' => 'auth.admin',
+	'uses' => 'CustomPagecontroller@savePage'
+])->name('customPage.postEdit');
 
 // blog
 Route::get('/blog-overview', 'BlogPostcontroller@getBlogPostOverview')->name('blogPost.getOverview');
@@ -36,15 +42,42 @@ Route::get('/blog-edit/{slug}', [
 		'middleware' => 'auth.admin',
 		'uses' => 'BlogPostcontroller@getEdit'
 	])->name('blogPost.edit');
-Route::post('/blog-edit/{slug}', 'BlogPostcontroller@saveBlogPost')->name('blogPost.postEdit');
+Route::post('/blog-edit/{slug}', [
+	'middleware' => 'auth.admin',
+	'uses' => 'BlogPostcontroller@saveBlogPost'
+])->name('blogPost.postEdit');
 
 // newsletter subscribe
-Route::post('newsletter/subscribe', 'MailchimpController@subscribe')->name('mailchimp.subscribe');
-Route::post('newsletter/unsubscribe', 'MailchimpController@unSubscribe')->name('mailchimp.unsubscribe');
+Route::post('/newsletter/subscribe', 'MailchimpController@subscribe')->name('mailchimp.subscribe');
+Route::post('/newsletter/unsubscribe', 'MailchimpController@unSubscribe')->name('mailchimp.unsubscribe');
 
 //admin
-Route::get('admin/pages', 'AdminController@getPages')->name('admin.pages');
+Route::get('/admin', [
+	'middleware' => 'auth.admin',
+	'uses' => function() {
+		return redirect(route('admin.pages'));
+	}
+])->name('admin');
 
+Route::get('/admin/pages', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@getPages'
+])->name('admin.pages');
+
+Route::get('/admin/delete-page/{slug}', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@deletePage'
+])->name('admin.deletePage');
+
+Route::get('/admin/blog', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@getBlog'
+])->name('admin.blog');
+
+Route::get('/admin/delete-blog/{slug}', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@deleteBlog'
+])->name('admin.deleteBlog');
 
 // auth
 Auth::routes();

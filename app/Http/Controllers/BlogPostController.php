@@ -51,29 +51,42 @@ class BlogPostController extends Controller
     {
 		$input = $r->input();
 
-		// dd($input);
-
-		// image upload 
-
-		$r->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $imageName = time().'.'.$r->image->getClientOriginalExtension();
-		request()->image->move(public_path('image-uploads'), $imageName);
+		$blog_post = BlogPost::where('slug', $slug)->first();
+		
+	
+		
 		// save blog
 
-		$blog_post = BlogPost::where('slug', $slug)->first();
-
 		if ($blog_post) {
+			// check if there's a file
+			if($_FILES['image']["name"] !== "") {
+				// image upload 
+				$r->validate([
+					'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				]);
+
+				$imageName = time().'.'.$r->image->getClientOriginalExtension();
+				request()->image->move(public_path('image-uploads'), $imageName);
+				$blog_post->imagename = $imageName;
+			}
+
+			// set properties
 			$blog_post->language = $input['language'];
 			$blog_post->title = $input['title'];
 			$blog_post->intro = $input['intro'];
 			$blog_post->text = $input['text'];
 			$blog_post->slug = Str::slug($input['title'], '-');
-			$blog_post->imagename = $imageName;
 			$blog_post->save();
 		} else {
+			// image upload 
+			$r->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+
+			$imageName = time().'.'.$r->image->getClientOriginalExtension();
+			request()->image->move(public_path('image-uploads'), $imageName);
+			
+			// set properties
 			$new_blog_post = new BlogPost();
 			$new_blog_post->language = $input['language'];
 			$new_blog_post->title = $input['title'];
@@ -86,7 +99,6 @@ class BlogPostController extends Controller
 		}
 
 		$slug = Str::slug($input['title'], '-');
-
-		return redirect(route('blogPost.get', $slug));
+		return redirect(route('admin.blog', $slug));
 	}
 }

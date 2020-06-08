@@ -50,6 +50,6 @@ class customPageController extends Controller
 
 		$slug = Str::slug($input['title'], '-');
 
-		return redirect(route('customPage.get', $slug));
+		return redirect(route('admin.pages', $slug));
 	}
 }
