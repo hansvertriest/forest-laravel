@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-	<div class="donate-btn-container">
+	<div class="btn-center-container">
 		<a href="{{ route('donation.getMakeDonation')}}"><button class="primary-button">{{$titles->donate}}</button></a>
 	</div>
 	<div class="donation-overview-content">

@@ -13,6 +13,7 @@
 	margin: 0;
 	margin-right: 15px;
 	color: var(--white);
+	text-decoration: none;
 }
 
 .nav__buttons a {
@@ -246,4 +247,8 @@ p {
 	/* or 27px */
 
 	color: var(--bg-color-light);
+}
+
+a {
+	text-decoration: none;
 }

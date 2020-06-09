@@ -78,7 +78,7 @@
 		<section id="page-3">
 			<div class="page-content">
 				<h1 class="page-title">{{$titles->donations}}</h1>
-				<a href="{{ route('home')}}"><button class="primary-button">{{$text->donations_donate_btn}}</button></a>
+				<a href="{{ route('donation.getMakeDonation')}}"><button class="primary-button">{{$text->donations_donate_btn}}</button></a>
 				@if(count($donations) > 0)
 				@foreach($donations as $donation)
 					@include('partials.donationCard', [

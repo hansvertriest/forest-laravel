@@ -1,0 +1,24 @@
+.list-item {
+	grid-column: span 8;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 3px solid var(--bg-color-dark);
+	margin: 25px 0;
+}
+
+.list-item a {
+	font-family: Bitter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 43px;
+
+	color: #2C3A36;
+	margin: 10px 0 20px 0;
+	text-decoration: none;
+}
+
+.list-item a:hover {
+	color: var(--yellow);
+}

@@ -13,11 +13,11 @@
 @endsection
 
 @section('content')
-	<form action="{{route('donation.makeDonation')}}" method="post">
+	<form class="donate-form" action="{{route('donation.makeDonation')}}" method="post">
 		@csrf
 
 		<div class="donation-amount-container">
-			<input class="donation-amount-container__input" type="text" name="amount" placeholder="5">
+			<input class="donation-amount-container__input" type="number" name="amount" placeholder="5">
 			<p class="donation-amount-container__currency">$</p>
 		</div>
 		<div class="donation-email">
@@ -36,8 +36,8 @@
 		</div>
 
 		<div class="donation-public">
-			<label for="public">Can we show your donation on our public page?</label>
 			<input type="checkbox" id="public" name="public" value="true">
+			<label for="public">Can we show your donation on our public page?</label>
 		</div>
 
 		<button type="submit" class="primary-button">{{$title}}</button>

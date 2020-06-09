@@ -21,6 +21,10 @@ Route::get('/', function () {
 // home
 Route::get('/', 'HomeController@getIndex')->name('home');
 Route::get('/home-edit', 'HomeController@getEdit')->name('home.edit');
+Route::get('/home-edit', [
+	'middleware' => 'auth.admin',
+	'uses' => 'HomeController@getEdit'
+])->name('home.edit');
 Route::post('/home-edit', 'HomeController@postEdit');
 Route::post('/page-names-edit', 'HomeController@postPageNames');
 
@@ -87,7 +91,7 @@ Route::get('/admin/donations', [
 // auth
 Auth::routes();
 
-// doantions
+// donations
 
 Route::name('webhooks.mollie')->post('webhooks/mollie', 'WebhookController@handle');
 Route::get('/donate', 'DonationController@getMakeDonation')->name('donation.getMakeDonation');

@@ -72,3 +72,9 @@ textarea::placeholder {
 
 	color: #BBBBBB;
 }
+
+.btn-center-container {
+	grid-column: span 8;
+	display: flex;
+	justify-content:center;
+}

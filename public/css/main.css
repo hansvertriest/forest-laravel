@@ -6,6 +6,7 @@
 @import './components/newsPreview.css';
 @import './components/donationcard.css';
 @import './components/adminHeader.css';
+@import './components/listItem.css';
 
 @import './pages/home.css';
 @import './pages/customPageEdit.css';
@@ -13,6 +14,9 @@
 @import './pages/blogPostPage.css';
 @import './pages/blogPostOverviewPage.css';
 @import './pages/donationOverview.css';
+@import './pages/donate.css';
+@import './pages/adminPages.css';
+@import './pages/adminDonations.css';
 /* @import './pages/adminPage.css'; */
 
 

@@ -15,7 +15,6 @@
 @section('content')
 
 <div class="admin-donations-container">
-		
 	@if(count($donations) > 0)
 	@foreach($donations as $donation)
 		<div class="donation-card">

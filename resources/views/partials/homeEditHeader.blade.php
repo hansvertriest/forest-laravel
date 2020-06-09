@@ -17,17 +17,17 @@
 	}
 </script>
 <div class="nav-container">
-	<form action="{{ route('home.edit')}}" class="language-selector" id="language-selector">
+	<form  action="{{ route('home.edit')}}" class="language-selector" id="language-selector">
 		<p>Language</p>
 		<select name="language" id="" onChange="submitForm()">
 			<option value="nl" @if(isset($language) && $language === "nl") selected="selected" @endif>Dutch</option>
 			<option value="en" @if(isset($language) && $language === "en") selected="selected" @endif>English</option>
 		</select>
 	</form>
-	<form id="hidden-from" action="" method="post">
-		<button type="submit">Submit</button>
+	<form class="landingpage-editor" id="hidden-from" action="" method="post">
+		<button type="submit">SUBMIT PAGE</button>
 	</form>
-	<form action="/page-names-edit" method="post">
+	<form class="title-editor" action="/page-names-edit" method="post">
 		@csrf
 		<input name="home" placeholder="home" type="text">
 		<input name="about" placeholder="about" type="text">
@@ -35,6 +35,6 @@
 		<input name="donations" placeholder="donations" type="text">
 		<input name="contact" placeholder="contact" type="text">
 		<input name="pages" placeholder="pages" type="text">
-		<button type="submit">Submit</button>
+		<button type="submit">SUBMIT TITLES</button>
 	</form>
 </div>

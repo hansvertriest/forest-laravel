@@ -24,5 +24,7 @@
 		"item_href" => "/page"
 	])
 @endforeach
-	<a href="/custom-page-edit/new"><button class="primary-button">new</button></a>
+	<div class="btn-center-container">
+		<a href="/custom-page-edit/new"><button class="primary-button">new</button></a>
+	</div>
 @endsection

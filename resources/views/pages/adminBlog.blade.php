@@ -24,5 +24,7 @@
 		"item_href" => "/blog"
 	])
 @endforeach
-	<a href="/blog-edit/new"><button class="primary-button">new</button></a>
+	<div class="btn-center-container">
+		<a href="/blog-edit/new"><button class="primary-button">new</button></a>
+	</div>
 @endsection
