@@ -35,17 +35,17 @@
 		<section id="page-1">
 			<div class="page-content">
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro1.png" alt="">
 					<p class="about-card__title">{{$text->about_title_one ?? ''}}</p>
 					<p class="about-card__text">{{$text->about_text_one ?? ''}}</p>
 				</div>
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro2.png" alt="">
 					<p class="about-card__title">{{$text->about_title_two ?? ''}}</p>
 					<p class="about-card__text">{{$text->about_text_two ?? ''}}</p>
 				</div>
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro3.png" alt="">
 					<p class="about-card__title">{{$text->about_title_three ?? ''}}</p>
 					<p class="about-card__text">{{$text->about_text_three ?? ''}}</p>
 				</div>
@@ -79,19 +79,19 @@
 			<div class="page-content">
 				<h1 class="page-title">{{$titles->donations}}</h1>
 				<a href="{{ route('home')}}"><button class="primary-button">{{$text->donations_donate_btn}}</button></a>
-				@include('partials.donationCard', [
-					"name" => "Jan De Meyer",
-					"msg" => "Deze app heeft er voor gezorgd dat ik er door was op wiskunde. Zeker de donatiee waard dus!",
-					"amount" => "30",
-				])
-				
-				@include('partials.donationCard', [
-					"name" => "Jan De Meyer",
-					"msg" => "Deze app heeft er voor gezorgd dat ik er door was op wiskunde. Zeker de donatiee waard dus!",
-					"amount" => "30",
-				])
+				@if(count($donations) > 0)
+				@foreach($donations as $donation)
+					@include('partials.donationCard', [
+								"name" => $donation->name,
+								"msg" => $donation->message,
+								"amount" => $donation->amount,
+							])
+				@endforeach
+				@else
+				<p>No news stories available</p>
+				@endif
 				<div class="page-content__button-container">
-					<a href="{{ route('home')}}"><button class="secondary-button">{{$text->donations_overview_btn}}</button></a>
+					<a href="{{ route('donation.getOverview')}}"><button class="secondary-button">{{$text->donations_overview_btn}}</button></a>
 				</div>
 				
 			</div>

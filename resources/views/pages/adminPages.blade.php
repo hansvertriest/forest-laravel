@@ -1,7 +1,7 @@
 @extends('pageLayout')
 
 @section('document-title')
-    Forest | subscribe
+    Forest Admin
 @endsection
 
 @section('header')
@@ -21,7 +21,7 @@
 		"language" => $item->language,
 		"edit_href" => "/custom-page-edit",
 		"delete_href" => "/admin/delete-page",
-		"item_href" => "/custom-page"
+		"item_href" => "/page"
 	])
 @endforeach
 	<a href="/custom-page-edit/new"><button class="primary-button">new</button></a>

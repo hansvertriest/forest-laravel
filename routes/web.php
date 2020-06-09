@@ -79,7 +79,20 @@ Route::get('/admin/delete-blog/{slug}', [
 	'uses' => 'AdminController@deleteBlog'
 ])->name('admin.deleteBlog');
 
+Route::get('/admin/donations', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@getDonations'
+])->name('admin.getDonations');
+
 // auth
 Auth::routes();
+
+// doantions
+
+Route::name('webhooks.mollie')->post('webhooks/mollie', 'WebhookController@handle');
+Route::get('/donate', 'DonationController@getMakeDonation')->name('donation.getMakeDonation');
+Route::get('/donation-overview', 'DonationController@getDonationOverview')->name('donation.getOverview');
+Route::post('/donation', 'DonationController@postMakeDonation')->name('donation.makeDonation');
+Route::get('/succes/{id}', 'DonationController@getSucces')->name('donation.paymentSucces');
 
 // Route::get('/home', 'HomeController@index')->name('home');

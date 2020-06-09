@@ -21,6 +21,7 @@ class PageNameTable extends Migration
 			$table->string('about')->default('about');
 			$table->string('news')->default('news');
 			$table->string('donations')->default('donations');
+			$table->string('donate')->default('donate');
 			$table->string('contact')->default('contact');
 			$table->string('pages')->default('pages');
 

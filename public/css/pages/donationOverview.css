@@ -1,0 +1,12 @@
+.donate-btn-container {
+	grid-column: span 8;
+	display: flex;
+	justify-content:center;
+}
+
+.donation-overview-content {
+	grid-column: span 8;
+	display: flex;
+	flex-direction: column;
+
+}

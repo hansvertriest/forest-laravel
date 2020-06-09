@@ -6,6 +6,7 @@ use App\BlogPost;
 use App\CustomPage;
 use App\LandingPage;
 use App\PageName;
+use App\Donation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,6 +27,7 @@ class HomeController extends Controller
 		$landingpage = LandingPage::where('language', $language)->first();
 		$page_names = PageName::where('language', $language)->first();
 		$custom_pages = CustomPage::where('language', $language)->get() ?? [];
+		$donations = Donation::where('public', 1)->orderBy('created_at', 'desc')->paginate(3);
 
 		if($landingpage === null) {
 			$landingpage = LandingPage::where('language', 'en')->first();
@@ -38,6 +40,7 @@ class HomeController extends Controller
 			'language' => $language,
 			'titles' => $page_names,
 			'custom_pages' => $custom_pages,
+			'donations' => $donations,
 		];
         return view('pages/home', $data);
 	}

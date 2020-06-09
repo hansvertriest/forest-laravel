@@ -14,5 +14,6 @@ class PageName extends Model
 		'donations',
 		'contact',
 		'pages',
+		'donate',
 	];
 }

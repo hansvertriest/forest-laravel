@@ -43,17 +43,17 @@
 		<section id="page-1">
 			<div class="page-content">
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro1.png" alt="">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_title_one" value="{{$text->about_title_one ?? ''}} ">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_text_one" value="{{$text->about_text_one ?? ''}} ">
 				</div>
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro2.png" alt="">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_title_two" value="{{$text->text->about_title_two ?? ''}} ">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_text_two" value="{{$text->about_text_two ?? ''}} ">
 				</div>
 				<div class="page-content__about-card">
-					<img src="" alt="">
+					<img src="images/intro3.png" alt="">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_title_three" value="{{$text->about_title_three ?? ''}} ">
 					<input type="text" onchange="addToHiddenForm(event)" name="about_text_three" value="{{$text->about_text_three ?? ''}} ">
 				</div>

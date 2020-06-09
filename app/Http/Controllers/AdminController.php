@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BlogPost;
 use App\CustomPage;
+use App\Donation;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -38,5 +39,13 @@ class AdminController extends Controller
 		BlogPost::where('slug', $slug)->delete();
 
 		return redirect(route('admin.blog'));
+	}
+
+	public function getDonations() {
+		$donations = Donation::get();
+		return view('pages/adminDonations', [
+			"page" => "donations",
+			"donations" => $donations,
+		]);
 	}
 }

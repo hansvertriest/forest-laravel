@@ -1,7 +1,7 @@
 @extends('pageLayout')
 
 @section('document-title')
-    Forest | subscribe
+    Forest Admin
 @endsection
 
 @section('header')

@@ -9,7 +9,7 @@
 @endsection
 
 @section('title')
-	News
+{{$titles->news}}
 @endsection
 
 @section('content')
