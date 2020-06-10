@@ -88,8 +88,6 @@ Route::get('/admin/donations', [
 	'uses' => 'AdminController@getDonations'
 ])->name('admin.getDonations');
 
-// auth
-Auth::routes();
 
 // donations
 
@@ -98,5 +96,11 @@ Route::get('/donate', 'DonationController@getMakeDonation')->name('donation.getM
 Route::get('/donation-overview', 'DonationController@getDonationOverview')->name('donation.getOverview');
 Route::post('/donation', 'DonationController@postMakeDonation')->name('donation.makeDonation');
 Route::get('/succes/{id}', 'DonationController@getSucces')->name('donation.paymentSucces');
+
+// mails
+Route::post('/contact', 'MailController@postContact')->name('mail.postContact');
+
+// auth
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

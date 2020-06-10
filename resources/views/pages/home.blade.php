@@ -100,8 +100,9 @@
 		<section id="page-4">
 			<div class="page-content">
 				<h1 class="page-title">{{$titles->contact}}</h1>
-				<form>
-					<div class="contact-email">
+				<form action="{{route('mail.postContact')}}" method="post">
+					@csrf
+					<div  class="contact-email">
 						<label for="email">{{$text->contact_email_label}}</label>
 						<input type="text" name="email" placeholder="{{$text->contact_email_placeholder}}">
 					</div>
