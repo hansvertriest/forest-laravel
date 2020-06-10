@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BlogPost;
 use App\CustomPage;
 use App\Donation;
+use App\Mailchimp;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -47,5 +48,23 @@ class AdminController extends Controller
 			"page" => "donations",
 			"donations" => $donations,
 		]);
+	}
+
+
+	public function getMailchimpKey() {
+		$key = Mailchimp::first();
+
+		return view('pages/adminMailchimp', [
+			"page" => "mail",
+			"key" => $key->api_key,
+		]);
+	}
+
+	public function postMailchimpKey(request $r) {
+		$key = Mailchimp::first();
+		$key->api_key = $r->key;
+		$key->save();
+
+		return redirect(route('admin.getMailchimpKey'));
 	}
 }

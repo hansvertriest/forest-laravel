@@ -88,6 +88,16 @@ Route::get('/admin/donations', [
 	'uses' => 'AdminController@getDonations'
 ])->name('admin.getDonations');
 
+Route::post('/admin/mailchimp', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@postMailchimpKey'
+])->name('admin.postMailchimpKey');
+
+Route::get('/admin/mailchimp', [
+	'middleware' => 'auth.admin',
+	'uses' => 'AdminController@getMailchimpKey'
+])->name('admin.getMailchimpKey');
+
 
 // donations
 
